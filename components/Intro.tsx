@@ -9,11 +9,17 @@ import { FaGithubSquare } from "react-icons/fa";
 //
 import CoverPhoto from "@/public/khalid.jpg";
 import Link from "next/dist/client/link";
+import { useActiveSectionContext } from "@/context/activeSection";
+import { useSectionInView } from "@/hooks";
 
 export default function () {
+  const { ref } = useSectionInView("Home", 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
   return (
     <section
       id="home"
+      ref={ref}
       className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
       <div className="flex items-center justify-center">
